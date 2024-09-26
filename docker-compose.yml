@@ -41,3 +41,12 @@ services:
     command: bash -c "ruff check . --select I --fix && ruff format ."
     volumes:
       - .:/swo
+
+  dotnet_deploy:
+    container_name: swo_cli_dotnet
+    build:
+      context: .
+      dockerfile: dotnet.Dockerfile
+    working_dir: /swo
+    volumes:
+      - .:/swo
